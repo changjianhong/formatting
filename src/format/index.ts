@@ -12,7 +12,7 @@ export function format () {
 }
 
 export function replace (text: string) : string | undefined {
-  let regex = /import.*/g;
+  let regex = /^import\b.*/gm;
   let matched = text.match(regex);
   if (!matched) {return;}
   let from = matched?.join('\n');

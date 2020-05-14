@@ -4,7 +4,7 @@
 	"description": "format import",
 	"version": "0.0.1",
 	"publisher": "changjianhong",
-	"icon": "https://mp.img.paas.onairm.cn/97bab82289d00a29d3e687ac1f3ed08d",
+	"icon": "assets/launch.png",
 	"engines": {
 		"vscode": "^1.45.0"
 	},
@@ -14,6 +14,10 @@
 	"activationEvents": [
 		"onCommand:import-formatting.formatImport"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/changjianhong/import-formatting"
+	},
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
