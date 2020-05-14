@@ -5,7 +5,6 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('import-formatting.formatImport', () => {
 		format();
 	});
-
 	context.subscriptions.push(disposable);
 }
 

@@ -1,12 +1,12 @@
 import * as vscode from 'vscode';
-const curEditor = vscode.window.activeTextEditor;
 
 export function format () {
+  let curEditor = vscode.window.activeTextEditor;
   if (curEditor) {
     let from = curEditor.document.getText();
     let to = replace(from);
     if (to) {
-      edit(to);
+      edit(curEditor, to);
     }
   }
 }
@@ -33,10 +33,10 @@ export function replace (text: string) : string | undefined {
   return text.replace(from, to);
 }
 
-export function edit (str: string) {
-  curEditor?.edit((builder) => {
+export function edit (editor: vscode.TextEditor , str: string) {
+  editor.edit((builder) => {
     let start = new vscode.Position(0, 0);
-    let end = new vscode.Position(curEditor.document.lineCount, 0);
+    let end = new vscode.Position(editor.document.lineCount, 0);
     let range = new vscode.Range(start, end);
     builder.replace(range, str);
   });
