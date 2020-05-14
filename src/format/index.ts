@@ -12,18 +12,26 @@ export function format () {
 }
 
 export function replace (text: string) : string | undefined {
-  let regex = /^import\b.*/gm;
+  let regex = /^import\b.*\n{1,}/gm;
   let matched = text.match(regex);
   if (!matched) {return;}
-  let from = matched?.join('\n');
-  let to = matched?.sort((a, b) => {
-    return a.length < b.length ? -1 : 0;
-  })?.join('\n');
-  let formatStr = text.replace(from, to);
-  return formatStr;
+  let from = matched.join('');
+  
+  let to = matched.reduce((groups: string[][], next: string): any => {
+    let index = groups.length - 1;
+    if (/\n{2,}/.test(next)) {
+      next = next.replace(/\n{2,}/, '\n');
+      groups.push([]);
+    }
+    groups[index].push(next); 
+    return groups;
+  }, [[]] as string[][]).map(group => {
+    return group.sort((a, b)  => {
+      return a.length < b.length ? -1 : 0;
+    }).join('');
+  }).join('\n');
+  return text.replace(from, to);
 }
-
-
 
 export function edit (str: string) {
   curEditor?.edit((builder) => {
