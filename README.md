@@ -1,5 +1,7 @@
-# import-formatting README
+# formatting README
 
-format import
+
+- format import
+
 
 no publish, install from vsix
