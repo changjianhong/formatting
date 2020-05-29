@@ -12,7 +12,8 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:formatting.formatImport"
+		"onCommand:formatting.formatImport",
+		"onCommand:formatting.formatStylus"
 	],
 	"repository": {
 		"type": "git",
@@ -24,12 +25,17 @@
 			{
 				"command": "formatting.formatImport",
 				"title": "format import"
+			},
+			{
+				"command": "formatting.formatStylus",
+				"title": "format stylus"
 			}
 		]
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
 		"compile": "tsc -p ./",
+		"gen": "vsce package",
 		"lint": "eslint src --ext ts",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile && npm run lint",

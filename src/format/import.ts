@@ -33,11 +33,11 @@ export function replace (text: string) : string | undefined {
   return text.replace(from, to);
 }
 
-export function edit (editor: vscode.TextEditor , str: string) {
+export function edit (editor: vscode.TextEditor , content: string) {
   editor.edit((builder) => {
     let start = new vscode.Position(0, 0);
     let end = new vscode.Position(editor.document.lineCount, 0);
     let range = new vscode.Range(start, end);
-    builder.replace(range, str);
+    builder.replace(range, content);
   });
 }
