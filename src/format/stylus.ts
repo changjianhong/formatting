@@ -17,7 +17,8 @@ function replace (text: string): string | undefined {
   let matched = text.match(regex);
   if (matched && matched.length > 0) {
     matched.forEach((from) => {
-      let to = from.replace(/((\s*\{)|(\s*\})|:|;)/g, '');
+      let to = from.replace(/((\s*\{)|(\s*\})|;)/g, '');
+      to = to.replace(/:\s+/g, ' ');
       to = to.replace(/\n{2,}/g, '\n');
       content = content.replace(from, to);
     });
