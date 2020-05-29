@@ -1,7 +1,7 @@
 {
-	"name": "import-formatting",
-	"displayName": "import-formatting",
-	"description": "format import",
+	"name": "formatting",
+	"displayName": "formatting",
+	"description": "format owner",
 	"version": "0.0.1",
 	"publisher": "changjianhong",
 	"icon": "assets/launch.png",
@@ -12,17 +12,17 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:import-formatting.formatImport"
+		"onCommand:formatting.formatImport"
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/changjianhong/import-formatting"
+		"url": "https://github.com/changjianhong/formatting"
 	},
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "import-formatting.formatImport",
+				"command": "formatting.formatImport",
 				"title": "format import"
 			}
 		]
